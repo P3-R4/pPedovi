@@ -6,8 +6,3 @@ lua54 'yes'
 
 client_script 'pedovi.lua'
 shared_script 'config.lua'
-
-
-
-
-
