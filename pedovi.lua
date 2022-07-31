@@ -1,9 +1,9 @@
 
 local pedovis = {}
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(500)
+		Wait(500)
 		for k,v in pairs(Config.Lista) do
 			local x = GetEntityCoords(PlayerPedId())
 			local distance = #(x - v.koordinate.xyz)
@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
 			if distance >= Config.Distanca and pedovis[k] then
 				if Config.FadeIn then
 					for i = 255, 0, -51 do
-						Citizen.Wait(50)
+						Wait(50)
 						SetEntityAlpha(pedovis[k].spawnajpeda, i, false)
 					end
 				end
@@ -48,7 +48,7 @@ end)
 function blizupeda(pedic, koordinate, pol)
 	RequestModel(pedic)
 	while not HasModelLoaded(pedic) do
-		Citizen.Wait(50)
+		Wait(50)
 	end
 	if Config.SmanjiZ then
 		spawnajpeda = CreatePed(Config.nebitno[pol], pedic, koordinate.x, koordinate.y, koordinate.z - 1.0, koordinate.w, false, true)
@@ -62,7 +62,7 @@ function blizupeda(pedic, koordinate, pol)
 
 	
 		for i = 0, 255, 51 do
-			Citizen.Wait(50)
+			Wait(50)
 			SetEntityAlpha(spawnajpeda, i, false)
 		end
 
