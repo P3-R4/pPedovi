@@ -14,12 +14,12 @@ CreateThread(function()
 				end
 			end
 			if distance >= Config.Distanca and pedovis[k] then
-				if Config.FadeIn then
+				
 					for i = 255, 0, -51 do
 						Wait(50)
 						SetEntityAlpha(pedovis[k].spawnajpeda, i, false)
 					end
-				end
+				
 				SetEntityAsNoLongerNeeded(pedovis[k].spawnajpeda)
 				DeletePed(pedovis[k].spawnajpeda)
 				pedovis[k] = nil
